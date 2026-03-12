@@ -1,177 +1,1338 @@
-<!-- Save these three files in your project folder:
-1) index.html
-2) assets/css/style.css
-3) assets/js/main.js
-
-Open index.html in a browser. Edit the email address if you want a custom domain email.
--->
-
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Harekrishna Constructions — Commercial & Residential | Malur</title>
-  <meta name="description" content="Harekrishna Constructions — commercial & residential construction services in Malur." />
+  <title>Harekrishna Constructions — Infrastructure, Commercial & Residential | Malur</title>
+  <meta name="description" content="Harekrishna Constructions — end-to-end infrastructure, commercial & residential construction services in Malur by Durgesh MK, Civil Engineer with 8+ years experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0d0f;
+      --bg2: #0f1316;
+      --bg3: #141a1e;
+      --gold: #c8a84b;
+      --gold2: #e8c96a;
+      --rust: #b84c2e;
+      --white: #f0ece4;
+      --muted: #7a8490;
+      --border: rgba(200,168,75,0.15);
+      --card-bg: rgba(255,255,255,0.03);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { 
+      background: var(--bg); 
+      color: var(--white); 
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
 
-  <link rel="icon" href="assets/img/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 120px 0; position: relative; }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: 1;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .section-title span { color: var(--gold); }
+    .lead {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #0a0d0f;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--gold2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .btn:hover::before { transform: scaleX(1); }
+    .btn span { position: relative; z-index: 1; }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn-outline:hover { background: var(--gold); color: #0a0d0f; }
+    .gold-line {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 24px 0;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0;
+      transition: all 0.4s ease;
+    }
+    .site-header.scrolled {
+      background: rgba(10, 13, 15, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 36px; height: 36px;
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 14px;
+    }
+    .main-nav ul {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+    .main-nav a {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .main-nav a:hover { color: var(--white); }
+    .main-nav a:hover::after { transform: scaleX(1); }
+    .main-nav .cta-link a {
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 8px 20px;
+    }
+    .main-nav .cta-link a:hover { background: var(--gold); color: #0a0d0f; }
+    .main-nav .cta-link a::after { display: none; }
+    .nav-toggle {
+      display: none;
+      background: none; border: none;
+      color: var(--white); font-size: 24px; cursor: pointer;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: 
+        linear-gradient(135deg, rgba(200,168,75,0.08) 0%, transparent 50%),
+        linear-gradient(to bottom, transparent 50%, rgba(10,13,15,0.9) 100%);
+      z-index: 1;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image: 
+        linear-gradient(rgba(200,168,75,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,168,75,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 140px 0 80px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow span {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--gold);
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 9vw, 130px);
+      line-height: 0.92;
+      letter-spacing: 4px;
+      color: var(--white);
+      margin-bottom: 0;
+    }
+    .hero-title .line2 { color: var(--gold); }
+    .hero-title .line3 { 
+      -webkit-text-stroke: 1px rgba(200,168,75,0.4);
+      color: transparent;
+    }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 60px;
+      gap: 40px;
+    }
+    .hero-desc {
+      max-width: 440px;
+    }
+    .hero-desc p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.9;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-shrink: 0;
+    }
+    .stat { text-align: right; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 52px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--bg2); overflow: hidden; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 40px;
+      height: 100%;
+    }
+    .photo-icon {
+      width: 80px; height: 80px;
+      border: 2px dashed rgba(200,168,75,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      color: rgba(200,168,75,0.3);
+    }
+    .about-accent-box {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      width: 180px; height: 180px;
+      border: 2px solid var(--gold);
+      opacity: 0.3;
+      z-index: -1;
+    }
+    .about-accent-box2 {
+      position: absolute;
+      top: -16px; left: -16px;
+      width: 80px; height: 80px;
+      background: var(--gold);
+      opacity: 0.08;
+    }
+    .experience-badge {
+      position: absolute;
+      top: 24px; right: -36px;
+      background: var(--gold);
+      color: #0a0d0f;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .experience-badge .num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      line-height: 1;
+      display: block;
+    }
+    .experience-badge .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .about-text h2 { margin-bottom: 8px; }
+    .about-intro {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      line-height: 1.9;
+    }
+    .about-details { margin-bottom: 36px; }
+    .detail-row {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      font-size: 14px;
+    }
+    .detail-key {
+      width: 160px;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    .detail-val { color: var(--white); }
+
+    /* ─── SERVICES ─── */
+    #services { position: relative; }
+    .services-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 72px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover { background: rgba(200,168,75,0.04); transform: translateY(-4px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: rgba(200,168,75,0.08);
+      line-height: 1;
+      position: absolute;
+      top: 16px; right: 20px;
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(200,168,75,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+    }
+    .service-card h3 {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .service-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .service-card .service-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 20px;
+    }
+    .service-tag {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid rgba(200,168,75,0.2);
+      color: var(--gold);
+    }
+
+    /* ─── EXPERTISE STRIP ─── */
+    .expertise-strip {
+      background: var(--gold);
+      padding: 20px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .strip-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 25s linear infinite;
+    }
+    .strip-item {
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: #0a0d0f;
+      padding: 0 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .strip-item::after {
+      content: '◆';
+      font-size: 8px;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── PORTFOLIO ─── */
+    #portfolio { background: var(--bg2); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .portfolio-item:first-child {
+      grid-row: 1 / 3;
+    }
+    .portfolio-img {
+      width: 100%; height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.8);
+      transition: all 0.5s ease;
+    }
+    .portfolio-item:first-child .portfolio-img { min-height: 100%; }
+    .portfolio-item:hover .portfolio-img {
+      filter: brightness(0.9) saturate(1);
+      transform: scale(1.04);
+    }
+    .portfolio-img-placeholder {
+      min-height: 220px;
+      background: linear-gradient(135deg, var(--bg3) 0%, rgba(200,168,75,0.05) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+    }
+    .portfolio-item:first-child .portfolio-img-placeholder { min-height: 460px; }
+    .portfolio-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,13,15,0.9) 0%, transparent 60%);
+      padding: 28px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .portfolio-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .portfolio-overlay h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .portfolio-overlay p {
+      font-size: 13px;
+      color: rgba(240,236,228,0.6);
+      margin-top: 4px;
+    }
+
+    /* ─── APPROVALS ─── */
+    #approvals { background: var(--bg3); }
+    .approvals-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .approval-item {
+      background: var(--bg3);
+      padding: 36px 28px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .approval-item:hover { background: rgba(200,168,75,0.04); }
+    .approval-icon { font-size: 32px; margin-bottom: 16px; }
+    .approval-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .approval-item p { font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── CONTACT ─── */
+    #contact { overflow: hidden; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 0; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    input, textarea, select {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200,168,75,0.2);
+      color: var(--white);
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+      transition: border 0.3s;
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--gold);
+      background: rgba(200,168,75,0.04);
+    }
+    textarea { resize: vertical; min-height: 140px; }
+    select option { background: var(--bg); }
+    .contact-info-side {}
+    .contact-info-side h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+    .info-block {
+      border-left: 2px solid var(--gold);
+      padding: 20px 24px;
+      background: var(--card-bg);
+      margin-bottom: 16px;
+    }
+    .info-block .info-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .info-block a, .info-block span {
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.8;
+      display: block;
+    }
+    .info-block a:hover { color: var(--gold); }
+
+    /* ─── POPUP ─── */
+    .popup-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 9000;
+      display: none;
+    }
+    .thank-you-popup {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg2);
+      border: 1px solid var(--gold);
+      padding: 56px 48px;
+      z-index: 9001;
+      display: none;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+    }
+    .thank-you-popup .popup-icon { font-size: 48px; margin-bottom: 20px; }
+    .thank-you-popup h3 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .thank-you-popup p { color: var(--muted); margin-bottom: 32px; font-size: 15px; line-height: 1.8; }
+    #close-popup {
+      background: var(--gold); color: #0a0d0f;
+      border: none; padding: 14px 36px;
+      font-family: var(--font-body); font-weight: 700;
+      font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; cursor: pointer;
+    }
+    .popup-overlay.active, .thank-you-popup.active { display: block; }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 3px;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.8;
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: color 0.3s;
+    }
+    .footer-col ul li:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .footer-bottom strong { color: var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+    .fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .approvals-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-item:first-child { grid-row: auto; grid-column: 1 / 3; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 80px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 60px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-intro { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; }
+      .hero-stats { gap: 32px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-item:first-child { grid-column: auto; }
+      .approvals-grid { grid-template-columns: 1fr 1fr; }
+      .experience-badge { right: 16px; }
+      .form-row { grid-template-columns: 1fr; }
+      .main-nav { display: none; }
+      .nav-toggle { display: block; }
+      .main-nav.open {
+        display: block;
+        position: fixed;
+        top: 80px; left: 0; right: 0;
+        background: rgba(10,13,15,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 24px 32px;
+      }
+      .main-nav.open ul { flex-direction: column; gap: 0; }
+      .main-nav.open ul li a {
+        display: block; padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+      }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="container header-inner">
-    <a class="brand" href="#">Harekrishna Constructions</a>
+    <a class="brand" href="#">
+      <div class="brand-icon">HC</div>
+      HAREKRISHNA
+    </a>
     <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
     <nav id="main-nav" class="main-nav">
       <ul>
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="disabled"><a href="#">Career</a></li>
-        <li class="disabled"><a href="#">Life at</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#approvals">Approvals</a></li>
+        <li class="cta-link"><a href="#contact">Get a Quote</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main>
-  <section id="hero" class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1>Building spaces that work — commercial & residential</h1>
-        <p>Harekrishna Constructions (Malur) delivers quality, timely construction — from homes to commercial fit-outs.</p>
-        <a href="#contact" class="btn">Request a Quote</a>
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-content container">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Malur, Karnataka · Est. Since</span>
+        <div class="hero-eyebrow-line"></div>
       </div>
-      <div class="hero-media" aria-hidden="true">
-        <div class="card">
-          <h3>Contact</h3>
-          <p><strong>Address</strong><br>#36 Gangambika Nilaya, Kumbeshwara Temple Road<br>Kumbeshwara Layout, Malur Town</p>
-          <p><strong>Phone</strong><br><a href="tel:+918660865521">+91 86608 65521</a></p>
-          <p><strong>Email</strong><br><a href="mailto:info@harekrishnaconstructions.in">info@harekrishnaconstructions.in</a></p>
+      <h1 class="hero-title">
+        <div class="line1">BUILDING</div>
+        <div class="line2">STRONGER</div>
+        <div class="line3">FUTURES</div>
+      </h1>
+      <div class="hero-bottom">
+        <div class="hero-desc">
+          <p>End-to-end infrastructure, commercial & residential construction — from roads and drainage systems to hospitals, schools, and smart buildings.</p>
+          <a href="#contact" class="btn"><span>Request a Quote →</span></a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Projects Done</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">On-Time Delivery</div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="hero-scroll">Scroll</div>
   </section>
 
+  <!-- ── EXPERTISE STRIP ── -->
+  <div class="expertise-strip">
+    <div class="strip-track">
+      <span class="strip-item">Infrastructure</span>
+      <span class="strip-item">Roads & Drainage</span>
+      <span class="strip-item">Water Supply</span>
+      <span class="strip-item">RO & STP Plants</span>
+      <span class="strip-item">Solar Panels</span>
+      <span class="strip-item">Landscaping</span>
+      <span class="strip-item">Epoxy Flooring</span>
+      <span class="strip-item">PEB Structures</span>
+      <span class="strip-item">Electrical Services</span>
+      <span class="strip-item">Smart Classrooms</span>
+      <span class="strip-item">Hospitals & Colleges</span>
+      <span class="strip-item">HDD & UG Works</span>
+      <span class="strip-item">Infrastructure</span>
+      <span class="strip-item">Roads & Drainage</span>
+      <span class="strip-item">Water Supply</span>
+      <span class="strip-item">RO & STP Plants</span>
+      <span class="strip-item">Solar Panels</span>
+      <span class="strip-item">Landscaping</span>
+      <span class="strip-item">Epoxy Flooring</span>
+      <span class="strip-item">PEB Structures</span>
+      <span class="strip-item">Electrical Services</span>
+      <span class="strip-item">Smart Classrooms</span>
+      <span class="strip-item">Hospitals & Colleges</span>
+      <span class="strip-item">HDD & UG Works</span>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
   <section id="about" class="section">
     <div class="container">
-      <h2>About Us</h2>
-      <p>Harekrishna Constructions is a Malur-based building contractor established to deliver dependable commercial and residential construction services. We focus on quality, safety, and timely delivery with transparent pricing.</p>
-      <div class="grid cols-3">
-        <div class="feature">
-          <h4>Trusted Team</h4>
-          <p>Experienced site supervisors and tradespeople.</p>
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-photo-wrap">
+            <div class="about-photo">
+              <!-- Replace this div with: <img src="assets/img/durgesh.jpg" alt="Durgesh MK"> -->
+              <div class="about-photo-placeholder">
+                <div class="photo-icon">👤</div>
+                <span style="text-transform:uppercase; font-size:11px; color:rgba(200,168,75,0.5);">Place photo of<br>Durgesh MK here</span>
+              </div>
+            </div>
+            <div class="about-accent-box"></div>
+            <div class="about-accent-box2"></div>
+            <div class="experience-badge">
+              <span class="num">8+</span>
+              <span class="label">Years of<br>Excellence</span>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-          <h4>On-time Delivery</h4>
-          <p>Realistic schedules and strong project controls.</p>
-        </div>
-        <div class="feature">
-          <h4>Quality Materials</h4>
-          <p>We use approved materials and standard workmanship practices.</p>
+
+        <div class="about-text fade-up">
+          <span class="section-label">Meet the Director</span>
+          <h2 class="section-title">DURGESH <span>MK</span></h2>
+          <div class="gold-line"></div>
+          <p class="about-intro">A civil engineering graduate with over 8 years of hands-on expertise spanning planning, design, and execution. Durgesh MK leads Harekrishna Constructions with a commitment to quality infrastructure and timely delivery across Karnataka.</p>
+          <div class="about-details">
+            <div class="detail-row">
+              <span class="detail-key">Qualification</span>
+              <span class="detail-val">Graduation in Civil Engineering</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Experience</span>
+              <span class="detail-val">8+ Years in Construction & Infrastructure</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Age</span>
+              <span class="detail-val">30 Years</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Expertise</span>
+              <span class="detail-val">Planning, Design & Execution</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Location</span>
+              <span class="detail-val">Malur, Karnataka</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn"><span>Work With Us →</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="services" class="section alt">
+  <!-- ── SERVICES ── -->
+  <section id="services" class="section" style="background: var(--bg2);">
     <div class="container">
-      <h2>Our Services</h2>
-      <div class="grid cols-2">
-        <div class="service-card">
-          <h3>Residential Construction</h3>
-          <p>Turnkey homes, duplexes, extensions, and interior finishes — tailored to your budget and style.</p>
+      <div class="services-intro">
+        <div>
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title">OUR <span>SERVICES</span></h2>
         </div>
-        <div class="service-card">
-          <h3>Commercial Construction</h3>
-          <p>Offices, retail fit-outs, warehouses, and small industrial units with compliance-focused delivery.</p>
+        <p class="lead" style="max-width: 360px;">Comprehensive construction & infrastructure solutions delivered with precision and accountability.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-num">01</div>
+          <div class="service-icon">🏗️</div>
+          <h3>Infrastructure Works</h3>
+          <p>Comprehensive civil infrastructure from concept to completion, built to last.</p>
+          <div class="service-tags">
+            <span class="service-tag">Roads</span>
+            <span class="service-tag">Storm Drains</span>
+            <span class="service-tag">Culverts</span>
+            <span class="service-tag">Retaining Walls</span>
+            <span class="service-tag">Pavers</span>
+            <span class="service-tag">Slope Protection</span>
+          </div>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-num">02</div>
+          <div class="service-icon">💧</div>
+          <h3>Water & Environmental</h3>
+          <p>End-to-end water supply, treatment, and environmental solutions for projects of all scales.</p>
+          <div class="service-tags">
+            <span class="service-tag">Water Pipelines</span>
+            <span class="service-tag">RO Plants</span>
+            <span class="service-tag">STP Plants</span>
+            <span class="service-tag">ETP Plants</span>
+            <span class="service-tag">Hi-Masts</span>
+          </div>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-num">03</div>
+          <div class="service-icon">🏠</div>
+          <h3>Residential Construction</h3>
+          <p>Turnkey homes, duplexes, villas, and interior finishes tailored to your lifestyle and budget.</p>
+          <div class="service-tags">
+            <span class="service-tag">Turnkey Homes</span>
+            <span class="service-tag">Interior Works</span>
+            <span class="service-tag">Extensions</span>
+            <span class="service-tag">Landscaping</span>
+          </div>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-num">04</div>
+          <div class="service-icon">🏭</div>
+          <h3>Industrial & Commercial</h3>
+          <p>High-performance industrial and commercial structures built for function, compliance, and durability.</p>
+          <div class="service-tags">
+            <span class="service-tag">Epoxy Flooring</span>
+            <span class="service-tag">PU Flooring</span>
+            <span class="service-tag">PEB Structures</span>
+            <span class="service-tag">Warehouses</span>
+          </div>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-num">05</div>
+          <div class="service-icon">🏫</div>
+          <h3>Institutional Projects</h3>
+          <p>Specialized construction for educational and healthcare institutions with functional, modern design.</p>
+          <div class="service-tags">
+            <span class="service-tag">Schools</span>
+            <span class="service-tag">Medical Colleges</span>
+            <span class="service-tag">Hospitals</span>
+            <span class="service-tag">Smart Classrooms</span>
+          </div>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-num">06</div>
+          <div class="service-icon">⚡</div>
+          <h3>MEP & Solar</h3>
+          <p>Electrical, mechanical and renewable energy services to power modern infrastructure projects.</p>
+          <div class="service-tags">
+            <span class="service-tag">Electrical Services</span>
+            <span class="service-tag">Solar Panels</span>
+            <span class="service-tag">UG HDD</span>
+            <span class="service-tag">Cabling</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── PORTFOLIO ── -->
   <section id="portfolio" class="section">
     <div class="container">
-      <h2>Portfolio</h2>
-      <p class="muted">A few completed projects and recent work</p>
-      <div class="grid cols-3 portfolio-grid">
-        <article class="portfolio-item">
-          <img src="assets/img/portfolio1.jpg" alt="Project 1">
-          <h4>Residential — Malur</h4>
-          <p>Custom two-storey home with modern finishes.</p>
-        </article>
-        <article class="portfolio-item">
-          <img src="assets/img/portfolio2.jpg" alt="Project 2">
-          <h4>Retail Fit-out</h4>
-          <p>Turnkey retail space with lighting and fixtures.</p>
-        </article>
-        <article class="portfolio-item">
-          <img src="assets/img/portfolio3.jpg" alt="Project 3">
-          <h4>Warehouse External Works</h4>
-          <p>Compound walls, paving, and drainage.</p>
-        </article>
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title" style="margin-bottom: 48px;">FEATURED <span>PROJECTS</span></h2>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item fade-up">
+          <div class="portfolio-img-placeholder" style="min-height:460px; background: linear-gradient(135deg, #141a1e, rgba(200,168,75,0.08));">
+            🛣️
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Infrastructure</div>
+            <h4>Road & Drainage Network</h4>
+            <p>Storm water drains, culverts & road paving — Malur region</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item fade-up">
+          <div class="portfolio-img-placeholder">🏠</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Residential</div>
+            <h4>Custom Villa — Malur</h4>
+            <p>Two-storey home with modern interior finishes</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item fade-up">
+          <div class="portfolio-img-placeholder">⚗️</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Environmental</div>
+            <h4>STP Plant Installation</h4>
+            <p>Sewage treatment plant for industrial complex</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item fade-up">
+          <div class="portfolio-img-placeholder">🏭</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Industrial</div>
+            <h4>Epoxy Flooring — Warehouse</h4>
+            <p>Industrial PU & epoxy flooring, 12,000 sq ft</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item fade-up">
+          <div class="portfolio-img-placeholder">🌞</div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-tag">Energy</div>
+            <h4>Solar Panel Installation</h4>
+            <p>Rooftop solar for commercial building</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 40px; color: var(--muted); font-size: 13px; letter-spacing: 1px;">
+        * Portfolio images will be updated with actual project photographs. Contact us to view our full project catalogue.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── APPROVALS ── -->
+  <section id="approvals" class="section" style="background: var(--bg2);">
+    <div class="container">
+      <div style="display:flex; justify-content: space-between; align-items: flex-end; flex-wrap:wrap; gap:24px;">
+        <div>
+          <span class="section-label">Licensing & Compliance</span>
+          <h2 class="section-title">APPROVALS &<br><span>LIASONING</span></h2>
+        </div>
+        <p class="lead" style="max-width:400px;">We handle end-to-end approval and liaison services so your project moves forward without delays.</p>
+      </div>
+      <div class="approvals-grid">
+        <div class="approval-item">
+          <div class="approval-icon">🏢</div>
+          <h4>Commercial Approvals</h4>
+          <p>Building plan sanctions, occupancy certificates, and commercial use permissions</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-icon">🏭</div>
+          <h4>Industrial Approvals</h4>
+          <p>Factory licenses, fire NOC, pollution control clearances, and KSPCB compliance</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-icon">🌿</div>
+          <h4>Environmental Clearances</h4>
+          <p>EIA reports, consent to establish/operate, environmental and forest clearances</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-icon">📋</div>
+          <h4>Government Liasoning</h4>
+          <p>Coordination with BBMP, BMRDA, BDA, Gram Panchayats, and local authorities</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section contact-section">
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section">
     <div class="container">
-      <h2>Contact Us</h2>
-      <div class="grid cols-2">
+      <span class="section-label">Let's Build Together</span>
+      <h2 class="section-title" style="margin-bottom: 60px;">GET IN <span>TOUCH</span></h2>
+      <div class="contact-grid">
         <form id="contact-form" action="https://formspree.io/f/xwprnenr" method="POST" class="contact-form">
-          <label for="name">Name</label>
-          <input id="name" name="name" required>
-
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required>
-
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
-
-          <button type="submit" class="btn">Send Message</button>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Required</label>
+            <select id="service" name="service">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Infrastructure Works</option>
+              <option>Residential Construction</option>
+              <option>Commercial / Industrial</option>
+              <option>Water & Environmental (RO/STP/ETP)</option>
+              <option>Solar Panels</option>
+              <option>Institutional (School / Hospital)</option>
+              <option>Electrical Services</option>
+              <option>Approvals & Liasoning</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Describe your project, location, timeline…" required></textarea>
+          </div>
+          <button type="submit" class="btn" style="align-self:flex-start;"><span>Send Message →</span></button>
         </form>
 
-        <aside class="contact-info">
-          <h3>Office</h3>
-          <p>#36 Gangambika Nilaya<br>Kumbeshwara Temple Road<br>Kumbeshwara Layout, Malur Town</p>
-          <p><strong>Phone:</strong> <a href="tel:+918660865521">+91 86608 65521</a></p>
-          <p><strong>Email:</strong> <a href="mailto:info@harekrishnaconstructions.in">info@harekrishnaconstructions.in</a></p>
-          <p><strong>Location:</strong> MALUR</p>
+        <aside class="contact-info-side">
+          <h3>OFFICE <span style="color:var(--gold)">INFO</span></h3>
+          <div class="info-block">
+            <div class="info-label">📍 Address</div>
+            <span>#36 Gangambika Nilaya<br>Kumbeshwara Temple Road<br>Kumbeshwara Layout, Malur Town</span>
+          </div>
+          <div class="info-block">
+            <div class="info-label">📞 Phone</div>
+            <a href="tel:+918660865521">+91 86608 65521</a>
+          </div>
+          <div class="info-block">
+            <div class="info-label">✉️ Email</div>
+            <a href="mailto:info@harekrishnaconstructions.in">info@harekrishnaconstructions.in</a>
+          </div>
+          <div class="info-block">
+            <div class="info-label">🗺️ Service Area</div>
+            <span>Malur, Kolar, Chikkaballapur,<br>Bengaluru Rural & Surrounding Districts</span>
+          </div>
+          <div class="info-block">
+            <div class="info-label">🕐 Working Hours</div>
+            <span>Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</span>
+          </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <div id="popup-overlay" class="popup-overlay" aria-hidden="true"></div>
-  <div id="thank-you-popup" class="thank-you-popup" role="dialog" aria-hidden="true">
+  <div id="popup-overlay" class="popup-overlay"></div>
+  <div id="thank-you-popup" class="thank-you-popup" role="dialog">
+    <div class="popup-icon">✅</div>
     <h3>Thank You!</h3>
-    <p>Your message has been received. We will contact you shortly.</p>
+    <p>Your message has been received. Durgesh and the team will get back to you within 24 hours.</p>
     <button id="close-popup">Close</button>
   </div>
-
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div>
-      <strong>Harekrishna Constructions</strong>
-      <div>#36 Gangambika Nilaya, Kumbeshwara Layout, Malur Town</div>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">HAREKRISHNA CONSTRUCTIONS</div>
+        <p class="footer-tagline">Building stronger communities through quality infrastructure, commercial, and residential construction since day one. Malur's trusted civil engineering partner.</p>
+        <div class="gold-line"></div>
+        <div style="font-size:13px; color: var(--muted);">Led by <strong style="color:var(--gold)">Durgesh MK</strong>, Civil Engineer</div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li>Infrastructure Works</li>
+          <li>Roads & Drainage</li>
+          <li>Water Supply / STP / ETP</li>
+          <li>Residential Construction</li>
+          <li>Industrial & Commercial</li>
+          <li>Solar Panels</li>
+          <li>Electrical Services</li>
+          <li>Approvals & Liasoning</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>#36 Gangambika Nilaya</li>
+          <li>Kumbeshwara Layout</li>
+          <li>Malur Town, Karnataka</li>
+          <li><a href="tel:+918660865521" style="color:var(--gold);">+91 86608 65521</a></li>
+          <li><a href="mailto:info@harekrishnaconstructions.in" style="color:var(--muted); font-size:11px;">info@harekrishnaconstructions.in</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-right">
-      <div>Phone: <a href="tel:+918660865521">+91 86608 65521</a></div>
-      <div>Email: <a href="mailto:info@harekrishnaconstructions.in">info@harekrishnaconstructions.in</a></div>
+    <div class="footer-bottom">
+      <div>&copy; <span id="year"></span> <strong>Harekrishna Constructions</strong> — MALUR. All rights reserved.</div>
+      <div>Designed with precision · Built with pride</div>
     </div>
   </div>
-  <div class="copyright">&copy; <span id="year"></span> Harekrishna Constructions — MALUR. All rights reserved.</div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile nav toggle
+  document.getElementById('nav-toggle').addEventListener('click', () => {
+    document.getElementById('main-nav').classList.toggle('open');
+  });
+  document.querySelectorAll('#main-nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('open'));
+  });
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Contact form + popup
+  const form = document.getElementById('contact-form');
+  const overlay = document.getElementById('popup-overlay');
+  const popup = document.getElementById('thank-you-popup');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        form.reset();
+        overlay.classList.add('active');
+        popup.classList.add('active');
+      }
+    } catch {
+      overlay.classList.add('active');
+      popup.classList.add('active');
+    }
+  });
+
+  document.getElementById('close-popup').addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+  });
+  overlay.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup.classList.remove('active');
+  });
+</script>
 </body>
 </html>
-
-
