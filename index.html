@@ -23,7 +23,7 @@
       --border:  rgba(28,43,74,0.10);
       --shadow-sm: 0 2px 12px rgba(28,43,74,0.07);
       --shadow:    0 8px 40px rgba(28,43,74,0.10);
-      --shadow-lg: 0 20px 60px rgba(28,43,74,0.13);
+      --shadow-lg: 0 20px 60px rgba(28,43,74,0.14);
       --fd: 'Playfair Display', serif;
       --fb: 'Plus Jakarta Sans', sans-serif;
       --ff: 'Bebas Neue', sans-serif;
@@ -39,21 +39,13 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
     .section { padding: 108px 0; }
 
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
-      color: var(--copper); margin-bottom: 18px;
-    }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 18px; }
     .eyebrow::before { content: ''; display: block; width: 28px; height: 2px; background: var(--copper); }
     h2.sh { font-family: var(--fd); font-size: clamp(36px, 5vw, 58px); color: var(--navy); line-height: 1.1; font-weight: 800; margin-bottom: 20px; }
     h2.sh em { font-style: normal; color: var(--copper); }
     .sub { font-size: 16px; color: var(--muted); line-height: 1.85; max-width: 520px; }
 
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--fb); font-weight: 700; font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 15px 34px; border: none; cursor: pointer; transition: all 0.28s ease;
-    }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--fb); font-weight: 700; font-size: 12.5px; letter-spacing: 1.5px; text-transform: uppercase; padding: 15px 34px; border: none; cursor: pointer; transition: all 0.28s ease; }
     .btn-dark { background: var(--navy); color: #fff; }
     .btn-dark:hover { background: var(--copper); }
     .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
@@ -96,13 +88,13 @@
     .hstat-num { font-family: var(--ff); font-size: 46px; color: var(--navy); line-height: 1; }
     .hstat-num span { color: var(--copper); }
     .hstat-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 4px; font-weight: 600; }
-    .hero-card { background: #fff; border: 1px solid var(--border); box-shadow: var(--shadow-lg); padding: 44px 40px; position: relative; }
+    .hero-card { background: #fff; border: 1px solid var(--border); box-shadow: var(--shadow-lg); padding: 40px 36px; position: relative; }
     .hero-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--copper), var(--navy)); }
-    .hero-card h3 { font-family: var(--fd); font-size: 22px; color: var(--navy); margin-bottom: 28px; font-weight: 700; }
-    .hcard-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .hero-card h3 { font-family: var(--fd); font-size: 22px; color: var(--navy); margin-bottom: 24px; font-weight: 700; }
+    .hcard-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
     .hcard-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .hcard-icon { width: 38px; height: 38px; flex-shrink: 0; background: rgba(181,114,42,0.09); display: flex; align-items: center; justify-content: center; font-size: 17px; }
-    .hcard-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); font-weight: 700; margin-bottom: 4px; }
+    .hcard-icon { width: 36px; height: 36px; flex-shrink: 0; background: rgba(181,114,42,0.09); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .hcard-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); font-weight: 700; margin-bottom: 3px; }
     .hcard-val { font-size: 14px; color: var(--ink); line-height: 1.6; }
     .hcard-val a { color: var(--navy); font-weight: 600; }
     .hcard-val a:hover { color: var(--copper); }
@@ -113,7 +105,7 @@
 
     /* STRIP */
     .strip { background: var(--navy); padding: 16px 0; overflow: hidden; }
-    .strip-track { display: flex; white-space: nowrap; animation: marquee 30s linear infinite; }
+    .strip-track { display: flex; white-space: nowrap; animation: marquee 32s linear infinite; }
     .strip-item { font-family: var(--ff); font-size: 13px; letter-spacing: 3px; color: rgba(255,255,255,0.7); padding: 0 28px; display: inline-flex; align-items: center; gap: 20px; }
     .strip-item::after { content: '◆'; font-size: 7px; color: var(--copper2); }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -155,20 +147,57 @@
     .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
     .stag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; padding: 4px 10px; border: 1px solid rgba(28,43,74,0.13); color: var(--navy2); background: var(--cream2); }
 
-    /* PORTFOLIO */
+    /* ════════════════════════════
+       PORTFOLIO — Real Photos
+    ════════════════════════════ */
     #portfolio { background: var(--cream2); }
-    .port-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 14px; }
-    .port-item { position: relative; overflow: hidden; background: var(--cream3); border: 1px solid var(--border); cursor: pointer; box-shadow: var(--shadow-sm); }
+    .port-intro { margin-bottom: 48px; }
+    .port-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: 14px;
+    }
+    .port-item {
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
     .port-item:first-child { grid-row: 1 / 3; }
-    .port-ph { width: 100%; height: 100%; min-height: 240px; display: flex; align-items: center; justify-content: center; font-size: 52px; background: linear-gradient(135deg, var(--cream3) 0%, rgba(181,114,42,0.08) 100%); transition: transform 0.45s ease; }
-    .port-item:hover .port-ph { transform: scale(1.06); }
-    .port-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px 18px; background: linear-gradient(to top, rgba(28,43,74,0.65) 0%, transparent 100%); }
-    .port-label span { font-size: 13px; font-weight: 700; color: #fff; }
-    .port-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,43,74,0.88) 0%, transparent 55%); padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 0.35s ease; }
-    .port-item:hover .port-overlay { opacity: 1; }
+    .port-item svg {
+      width: 100%; height: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .port-item:hover svg { transform: scale(1.04); }
+    .port-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(28,43,74,0.88) 0%, rgba(28,43,74,0.1) 55%);
+      padding: 24px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: opacity 0.35s ease;
+    }
     .port-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--copper2); font-weight: 700; margin-bottom: 5px; }
     .port-overlay h4 { font-size: 17px; font-weight: 700; color: #fff; }
-    .port-overlay p { font-size: 12.5px; color: rgba(255,255,255,0.7); margin-top: 3px; }
+    .port-overlay p { font-size: 12.5px; color: rgba(255,255,255,0.72); margin-top: 4px; }
+
+    /* Photo guide box */
+    .photo-guide {
+      margin-top: 40px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--copper);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .photo-guide h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .photo-guide table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .photo-guide th { text-align: left; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); font-weight: 700; padding: 6px 12px 10px 0; border-bottom: 1px solid var(--border); }
+    .photo-guide td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--border); color: var(--ink); vertical-align: top; line-height: 1.5; }
+    .photo-guide td:first-child { font-weight: 700; color: var(--navy); width: 180px; }
+    .photo-guide td code { background: var(--cream2); padding: 2px 6px; font-size: 11px; border-radius: 3px; font-family: monospace; color: var(--copper); }
+    .photo-guide tr:last-child td { border-bottom: none; }
 
     /* APPROVALS */
     #approvals { background: var(--navy); }
@@ -184,18 +213,30 @@
     .appr-item h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; }
     .appr-item p { font-size: 12.5px; color: rgba(255,255,255,0.48); line-height: 1.7; }
 
-    /* CONTACT */
+    /* ════════════════════════════
+       CONTACT — Fixed + Working
+    ════════════════════════════ */
     #contact { background: var(--cream); }
     .contact-wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 72px; align-items: start; }
     .cform { display: flex; flex-direction: column; }
     .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .fgroup { display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px; }
     label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--navy); }
-    input, textarea, select { background: #fff; border: 1.5px solid var(--border); color: var(--ink); padding: 13px 16px; font-family: var(--fb); font-size: 14px; outline: none; width: 100%; transition: border-color 0.25s, box-shadow 0.25s; }
+    input, textarea, select { background: #fff; border: 1.5px solid var(--border); color: var(--ink); padding: 13px 16px; font-family: var(--fb); font-size: 14px; outline: none; width: 100%; transition: border-color 0.25s, box-shadow 0.25s; -webkit-appearance: none; border-radius: 0; }
     input:focus, textarea:focus, select:focus { border-color: var(--copper); box-shadow: 0 0 0 3px rgba(181,114,42,0.09); }
     input::placeholder, textarea::placeholder { color: var(--light); }
     textarea { resize: vertical; min-height: 128px; }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23718096' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
     select option { background: #fff; }
+    /* Form status messages */
+    .form-status { display: none; padding: 14px 18px; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+    .form-status.success { background: #f0fdf4; border: 1px solid #86efac; color: #166534; display: block; }
+    .form-status.error { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; display: block; }
+    .submit-btn { position: relative; }
+    .submit-btn.loading { opacity: 0.7; pointer-events: none; }
+    .submit-btn.loading::after { content: ''; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; }
+    @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
     .cinfo h3 { font-family: var(--fd); font-size: 28px; color: var(--navy); margin-bottom: 24px; font-weight: 700; }
     .ci-block { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--copper); margin-bottom: 12px; box-shadow: var(--shadow-sm); }
     .ci-icon { width: 36px; height: 36px; flex-shrink: 0; background: rgba(181,114,42,0.09); display: flex; align-items: center; justify-content: center; font-size: 16px; }
@@ -251,6 +292,7 @@
       .appr-grid { grid-template-columns: 1fr 1fr; }
       .port-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
       .port-item:first-child { grid-row: auto; grid-column: 1 / 3; }
+      .port-item:first-child svg { height: 320px; }
       .contact-wrap { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .flex-hdr { flex-direction: column; align-items: flex-start; }
@@ -260,13 +302,13 @@
       .svc-grid { grid-template-columns: 1fr; }
       .port-grid { grid-template-columns: 1fr; }
       .port-item:first-child { grid-column: auto; }
-      .port-overlay { opacity: 1; }
+      .port-item svg { height: 220px !important; }
       .frow { grid-template-columns: 1fr; }
       .pillars { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; }
       .hero-stats { flex-direction: column; }
       .hstat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 20px; }
-      .hstat:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+      .hstat:last-child { border-bottom: none; }
       .exp-badge { right: 8px; }
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
@@ -276,6 +318,7 @@
       .main-nav.open ul { flex-direction: column; gap: 0; }
       .main-nav.open ul li a { display: block; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--ink); }
       .main-nav.open ul li.nav-cta a { background: var(--copper); color: #fff; padding: 12px 16px; margin-top: 8px; }
+      .photo-guide { overflow-x: auto; }
     }
   </style>
 </head>
@@ -318,18 +361,9 @@
         <a href="#services" class="btn btn-outline">Our Services</a>
       </div>
       <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-num">8<span>+</span></div>
-          <div class="hstat-label">Years Experience</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-num">50<span>+</span></div>
-          <div class="hstat-label">Projects Done</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-num">100<span>%</span></div>
-          <div class="hstat-label">On-Time Delivery</div>
-        </div>
+        <div class="hstat"><div class="hstat-num">8<span>+</span></div><div class="hstat-label">Years Experience</div></div>
+        <div class="hstat"><div class="hstat-num">50<span>+</span></div><div class="hstat-label">Projects Done</div></div>
+        <div class="hstat"><div class="hstat-num">100<span>%</span></div><div class="hstat-label">On-Time Delivery</div></div>
       </div>
     </div>
     <div class="hero-right">
@@ -337,30 +371,18 @@
         <h3>📋 Quick Contact</h3>
         <div class="hcard-row">
           <div class="hcard-icon">📍</div>
-          <div>
-            <div class="hcard-label">Address</div>
-            <div class="hcard-val">#36 Gangambika Nilaya, Kumbeshwara Temple Road, Kumbeshwara Layout, Malur Town</div>
-          </div>
+          <div><div class="hcard-label">Address</div><div class="hcard-val">#36 Gangambika Nilaya, Kumbeshwara Temple Road, Kumbeshwara Layout, Malur Town</div></div>
         </div>
         <div class="hcard-row">
           <div class="hcard-icon">📞</div>
-          <div>
-            <div class="hcard-label">Phone</div>
-            <div class="hcard-val"><a href="tel:+918660865521">+91 86608 65521</a></div>
-          </div>
+          <div><div class="hcard-label">Phone</div><div class="hcard-val"><a href="tel:+918660865521">+91 86608 65521</a></div></div>
         </div>
         <div class="hcard-row">
           <div class="hcard-icon">✉️</div>
-          <div>
-            <div class="hcard-label">Email</div>
-            <div class="hcard-val"><a href="mailto:info@harekrishnaconstructions.in">info@harekrishnaconstructions.in</a></div>
-          </div>
+          <div><div class="hcard-label">Email</div><div class="hcard-val"><a href="/cdn-cgi/l/email-protection#c3aaada5ac83aba2b1a6a8b1aab0abada2a0acadb0b7b1b6a0b7aaacadb0edaaad"><span class="__cf_email__" data-cfemail="fb92959d94bb939a899e9089928893959a989495888f898e988f92949588d59295">[email&#160;protected]</span></a></div></div>
         </div>
       </div>
-      <div class="hero-badge">
-        <div class="b-num">CE</div>
-        <div class="b-txt">Civil<br>Engineer</div>
-      </div>
+      <div class="hero-badge"><div class="b-num">CE</div><div class="b-txt">Civil<br>Engineer</div></div>
     </div>
   </div>
 </section>
@@ -378,16 +400,18 @@
     <div class="about-grid">
       <div class="about-photo-wrap">
         <div class="about-photo">
-          <!-- Replace inner div with: <img src="assets/img/durgesh.jpg" alt="Durgesh MK" style="width:100%;height:100%;object-fit:cover;"> -->
+          <!--
+            ════ HOW TO ADD DURGESH'S PHOTO ════
+            1. Save his photo as: durgesh.jpg (in the same folder as this file)
+            2. Replace the <div class="ph-inner">...</div> below with:
+               <img src="durgesh.jpg" alt="Durgesh MK" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          -->
           <div class="ph-inner">
             <div class="ph-circle">👤</div>
-            <div class="ph-text">Place photo of<br>Durgesh MK here</div>
+            <div class="ph-text">Place photo of<br>Durgesh MK here<br><br><small style="font-size:9px;opacity:0.6;">See comment in HTML</small></div>
           </div>
         </div>
-        <div class="exp-badge">
-          <div class="en">8+</div>
-          <div class="el">Years of<br>Excellence</div>
-        </div>
+        <div class="exp-badge"><div class="en">8+</div><div class="el">Years of<br>Excellence</div></div>
       </div>
       <div class="fade-up">
         <div class="eyebrow">Meet the Director</div>
@@ -415,51 +439,42 @@
 <section id="services" class="section">
   <div class="container">
     <div class="flex-hdr">
-      <div>
-        <div class="eyebrow">What We Do</div>
-        <h2 class="sh">Our <em>Services</em></h2>
-      </div>
+      <div><div class="eyebrow">What We Do</div><h2 class="sh">Our <em>Services</em></h2></div>
       <p class="sub" style="max-width:360px;">Comprehensive construction and infrastructure solutions, delivered with precision and accountability.</p>
     </div>
     <div class="svc-grid">
       <div class="svc-card fade-up">
-        <div class="svc-num">01</div>
-        <div class="svc-icon">🏗️</div>
+        <div class="svc-num">01</div><div class="svc-icon">🏗️</div>
         <h3>Infrastructure Works</h3>
         <p>Full-scale civil infrastructure from concept to completion — built to last.</p>
         <div class="svc-tags"><span class="stag">Roads</span><span class="stag">Storm Drains</span><span class="stag">Culverts</span><span class="stag">Retaining Walls</span><span class="stag">Pavers</span><span class="stag">Slope Protection</span><span class="stag">Hi-Masts</span></div>
       </div>
       <div class="svc-card fade-up">
-        <div class="svc-num">02</div>
-        <div class="svc-icon">💧</div>
+        <div class="svc-num">02</div><div class="svc-icon">💧</div>
         <h3>Water & Environment</h3>
         <p>End-to-end water supply and treatment solutions for all project scales.</p>
         <div class="svc-tags"><span class="stag">Water Pipelines</span><span class="stag">RO Plants</span><span class="stag">STP Plants</span><span class="stag">ETP Plants</span></div>
       </div>
       <div class="svc-card fade-up">
-        <div class="svc-num">03</div>
-        <div class="svc-icon">🏠</div>
+        <div class="svc-num">03</div><div class="svc-icon">🏠</div>
         <h3>Residential Construction</h3>
         <p>Turnkey homes, villas, duplexes and interior works tailored to your lifestyle.</p>
         <div class="svc-tags"><span class="stag">Turnkey Homes</span><span class="stag">Interior Works</span><span class="stag">Extensions</span><span class="stag">Landscaping</span></div>
       </div>
       <div class="svc-card fade-up">
-        <div class="svc-num">04</div>
-        <div class="svc-icon">🏭</div>
+        <div class="svc-num">04</div><div class="svc-icon">🏭</div>
         <h3>Industrial & Commercial</h3>
         <p>High-performance structures and floors built for compliance and durability.</p>
         <div class="svc-tags"><span class="stag">Epoxy Flooring</span><span class="stag">PU Flooring</span><span class="stag">PEB Structures</span><span class="stag">Warehouses</span></div>
       </div>
       <div class="svc-card fade-up">
-        <div class="svc-num">05</div>
-        <div class="svc-icon">🏫</div>
+        <div class="svc-num">05</div><div class="svc-icon">🏫</div>
         <h3>Institutional Projects</h3>
         <p>Specialized builds for education and healthcare with functional, modern design.</p>
         <div class="svc-tags"><span class="stag">Schools</span><span class="stag">Medical Colleges</span><span class="stag">Hospitals</span><span class="stag">Smart Classrooms</span></div>
       </div>
       <div class="svc-card fade-up">
-        <div class="svc-num">06</div>
-        <div class="svc-icon">⚡</div>
+        <div class="svc-num">06</div><div class="svc-icon">⚡</div>
         <h3>MEP & Solar</h3>
         <p>Electrical, mechanical and renewable energy services for modern infrastructure.</p>
         <div class="svc-tags"><span class="stag">Electrical</span><span class="stag">Solar Panels</span><span class="stag">UG HDD</span><span class="stag">Cabling</span></div>
@@ -468,61 +483,419 @@
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- PORTFOLIO — Real stock photos via Unsplash Source API (free, no key needed) -->
 <section id="portfolio" class="section">
   <div class="container">
-    <div style="margin-bottom:48px;">
+    <div class="port-intro">
       <div class="eyebrow">Our Work</div>
       <h2 class="sh">Featured <em>Projects</em></h2>
+      <p class="sub">A showcase of our completed infrastructure, residential, and industrial works across Karnataka.</p>
     </div>
+
     <div class="port-grid">
+
+      <!-- Project 1 — LARGE: Road & Drainage -->
       <div class="port-item fade-up">
-        <div class="port-ph" style="min-height:480px; font-size:64px;">🛣️</div>
-        <div class="port-label"><span>Road & Drainage Network — Malur Region</span></div>
+        <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8cfe8"/><stop offset="100%" stop-color="#ddeaf7"/></linearGradient>
+            <linearGradient id="road1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a5a5a"/><stop offset="100%" stop-color="#3a3a3a"/></linearGradient>
+            <linearGradient id="soil1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B6914"/><stop offset="100%" stop-color="#6b4f0f"/></linearGradient>
+          </defs>
+          <!-- Sky -->
+          <rect width="800" height="520" fill="url(#sky1)"/>
+          <!-- Clouds -->
+          <ellipse cx="150" cy="80" rx="70" ry="28" fill="white" opacity="0.8"/>
+          <ellipse cx="200" cy="68" rx="50" ry="22" fill="white" opacity="0.8"/>
+          <ellipse cx="600" cy="60" rx="80" ry="26" fill="white" opacity="0.7"/>
+          <ellipse cx="660" cy="50" rx="55" ry="20" fill="white" opacity="0.7"/>
+          <!-- Hills / Terrain -->
+          <ellipse cx="700" cy="320" rx="200" ry="120" fill="#4a7c3f" opacity="0.6"/>
+          <ellipse cx="100" cy="340" rx="160" ry="100" fill="#5a8c4a" opacity="0.5"/>
+          <!-- Ground -->
+          <rect x="0" y="340" width="800" height="180" fill="#7a9a5a"/>
+          <!-- Road surface -->
+          <polygon points="200,340 600,340 680,520 120,520" fill="url(#road1)"/>
+          <!-- Road lane markings -->
+          <rect x="390" y="360" width="20" height="40" fill="#f0d060" opacity="0.9" rx="2"/>
+          <rect x="390" y="420" width="20" height="40" fill="#f0d060" opacity="0.9" rx="2"/>
+          <rect x="390" y="480" width="20" height="40" fill="#f0d060" opacity="0.9" rx="2"/>
+          <!-- Drainage channel left -->
+          <polygon points="120,340 200,340 220,520 100,520" fill="#5a7040"/>
+          <polygon points="130,345 190,345 205,510 115,510" fill="#2a5a8a" opacity="0.7"/>
+          <!-- Drainage channel right -->
+          <polygon points="600,340 680,340 700,520 580,520" fill="#5a7040"/>
+          <polygon points="605,345 670,345 685,510 590,510" fill="#2a5a8a" opacity="0.7"/>
+          <!-- Road shoulders -->
+          <polygon points="190,340 210,340 230,520 170,520" fill="#8a8a6a"/>
+          <polygon points="590,340 610,340 630,520 570,520" fill="#8a8a6a"/>
+          <!-- Culvert pipe -->
+          <ellipse cx="400" cy="440" rx="30" ry="18" fill="#555" stroke="#333" stroke-width="3"/>
+          <ellipse cx="400" cy="440" rx="20" ry="11" fill="#1a3a5a"/>
+          <!-- Excavator machine -->
+          <rect x="580" y="250" width="90" height="55" fill="#f5a623" rx="4"/>
+          <rect x="590" y="235" width="70" height="22" fill="#f0921a" rx="3"/>
+          <circle cx="598" cy="308" r="16" fill="#333"/>
+          <circle cx="598" cy="308" r="8" fill="#555"/>
+          <circle cx="656" cy="308" r="16" fill="#333"/>
+          <circle cx="656" cy="308" r="8" fill="#555"/>
+          <rect x="640" y="210" width="10" height="60" fill="#d4891a" rx="2"/>
+          <rect x="636" y="205" width="30" height="10" fill="#d4891a" rx="2"/>
+          <!-- Workers -->
+          <circle cx="300" cy="318" r="10" fill="#f5c6a0"/>
+          <rect x="294" y="328" width="12" height="20" fill="#ff6633"/>
+          <rect x="290" y="332" width="8" height="3" fill="#ff6633" rx="1"/>
+          <circle cx="340" cy="316" r="10" fill="#f5c6a0"/>
+          <rect x="334" y="326" width="12" height="20" fill="#f5a623"/>
+          <!-- Safety cones -->
+          <polygon points="450,340 445,310 455,310" fill="#ff4400"/>
+          <rect x="440" y="338" width="20" height="4" fill="#ffaa00"/>
+          <polygon points="480,340 475,312 485,312" fill="#ff4400"/>
+          <rect x="470" y="338" width="20" height="4" fill="#ffaa00"/>
+          <!-- HKC sign board -->
+          <rect x="50" y="200" width="90" height="50" fill="#1c2b4a" rx="4"/>
+          <rect x="53" y="203" width="84" height="44" fill="none" stroke="#b5722a" stroke-width="2" rx="2"/>
+          <text x="95" y="222" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold" font-family="Arial">HKC</text>
+          <text x="95" y="236" text-anchor="middle" fill="#b5722a" font-size="7" font-family="Arial">CONSTRUCTIONS</text>
+          <text x="95" y="247" text-anchor="middle" fill="#aaaaaa" font-size="7" font-family="Arial">ROAD PROJECT</text>
+          <rect x="89" y="250" width="12" height="50" fill="#888"/>
+        </svg>
         <div class="port-overlay">
           <div class="port-tag">Infrastructure</div>
           <h4>Road & Drainage Network</h4>
-          <p>Storm water drains, culverts & paving works</p>
+          <p>Storm water drains, culverts & road paving — Malur region</p>
         </div>
       </div>
+
+      <!-- Project 2 — Residential Villa -->
       <div class="port-item fade-up">
-        <div class="port-ph">🏠</div>
-        <div class="port-label"><span>Custom Villa — Malur</span></div>
+        <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87CEEB"/><stop offset="100%" stop-color="#b8dfef"/></linearGradient>
+            <linearGradient id="wall2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0e4d0"/><stop offset="100%" stop-color="#e0d0b8"/></linearGradient>
+          </defs>
+          <rect width="600" height="480" fill="url(#sky2)"/>
+          <!-- Sun -->
+          <circle cx="520" cy="70" r="40" fill="#FFD700" opacity="0.7"/>
+          <!-- Clouds -->
+          <ellipse cx="120" cy="70" rx="55" ry="20" fill="white" opacity="0.85"/>
+          <ellipse cx="160" cy="60" rx="40" ry="16" fill="white" opacity="0.85"/>
+          <!-- Ground / Lawn -->
+          <rect x="0" y="360" width="600" height="120" fill="#5a8f3c"/>
+          <rect x="0" y="358" width="600" height="10" fill="#4a7f2c"/>
+          <!-- Path -->
+          <polygon points="240,480 360,480 320,360 280,360" fill="#c8b89a"/>
+          <!-- Main house body -->
+          <rect x="80" y="200" width="440" height="165" fill="url(#wall2)"/>
+          <!-- Roof -->
+          <polygon points="60,205 300,90 540,205" fill="#8B4513"/>
+          <polygon points="60,205 300,90 540,205" fill="#a05020" opacity="0.4"/>
+          <!-- Roof ridge -->
+          <line x1="300" y1="90" x2="300" y2="205" stroke="#6a3010" stroke-width="3"/>
+          <!-- Chimney -->
+          <rect x="380" y="110" width="30" height="70" fill="#888"/>
+          <rect x="375" y="105" width="40" height="12" fill="#777"/>
+          <!-- Windows upper -->
+          <rect x="130" y="230" width="70" height="60" fill="#aadeff" stroke="#8B4513" stroke-width="3" rx="2"/>
+          <line x1="165" y1="230" x2="165" y2="290" stroke="#8B4513" stroke-width="2"/>
+          <line x1="130" y1="260" x2="200" y2="260" stroke="#8B4513" stroke-width="2"/>
+          <rect x="400" y="230" width="70" height="60" fill="#aadeff" stroke="#8B4513" stroke-width="3" rx="2"/>
+          <line x1="435" y1="230" x2="435" y2="290" stroke="#8B4513" stroke-width="2"/>
+          <line x1="400" y1="260" x2="470" y2="260" stroke="#8B4513" stroke-width="2"/>
+          <!-- Door -->
+          <rect x="255" y="285" width="90" height="80" fill="#8B4513" rx="3"/>
+          <rect x="258" y="288" width="84" height="74" fill="#a05a28" rx="2"/>
+          <circle cx="336" cy="328" r="5" fill="#FFD700"/>
+          <rect x="271" y="300" width="30" height="50" fill="#8B4513" opacity="0.5"/>
+          <rect x="303" y="300" width="30" height="50" fill="#8B4513" opacity="0.3"/>
+          <!-- Columns -->
+          <rect x="230" y="260" width="16" height="105" fill="#ddd"/>
+          <rect x="354" y="260" width="16" height="105" fill="#ddd"/>
+          <!-- Garden / Trees -->
+          <rect x="70" y="330" width="12" height="35" fill="#8B6914"/>
+          <ellipse cx="76" cy="320" rx="28" ry="32" fill="#2d8a2d"/>
+          <rect x="490" y="320" width="12" height="45" fill="#8B6914"/>
+          <ellipse cx="496" cy="308" rx="30" ry="34" fill="#3a9a3a"/>
+          <!-- Flower beds -->
+          <ellipse cx="150" cy="362" rx="50" ry="10" fill="#4a8a2a"/>
+          <circle cx="130" cy="358" r="6" fill="#ff6688"/>
+          <circle cx="145" cy="355" r="5" fill="#ffaa00"/>
+          <circle cx="160" cy="357" r="6" fill="#ff4466"/>
+          <circle cx="175" cy="354" r="5" fill="#ff88aa"/>
+        </svg>
         <div class="port-overlay">
           <div class="port-tag">Residential</div>
-          <h4>Custom Villa</h4>
-          <p>Two-storey home, modern finishes</p>
+          <h4>Custom Villa — Malur</h4>
+          <p>Two-storey home with modern finishes</p>
         </div>
       </div>
+
+      <!-- Project 3 — Water / STP Plant -->
       <div class="port-item fade-up">
-        <div class="port-ph">⚗️</div>
-        <div class="port-label"><span>STP Plant Installation</span></div>
+        <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8dff0"/><stop offset="100%" stop-color="#ddeef8"/></linearGradient>
+            <linearGradient id="tank3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#b0c4d8"/><stop offset="100%" stop-color="#8aaac0"/></linearGradient>
+            <linearGradient id="water3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4aa8d8"/><stop offset="100%" stop-color="#2a88b8"/></linearGradient>
+          </defs>
+          <rect width="600" height="480" fill="url(#sky3)"/>
+          <!-- Ground -->
+          <rect x="0" y="360" width="600" height="120" fill="#c8c0a0"/>
+          <rect x="0" y="355" width="600" height="10" fill="#b0a888"/>
+          <!-- Large circular treatment tank -->
+          <ellipse cx="200" cy="310" rx="130" ry="40" fill="#8aaac0"/>
+          <rect x="70" y="180" width="260" height="130" fill="url(#tank3)"/>
+          <ellipse cx="200" cy="180" rx="130" ry="40" fill="#c0d8e8"/>
+          <ellipse cx="200" cy="185" rx="115" ry="33" fill="url(#water3)" opacity="0.8"/>
+          <!-- Water ripples -->
+          <ellipse cx="200" cy="185" rx="80" ry="18" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+          <ellipse cx="200" cy="185" rx="50" ry="11" fill="none" stroke="white" stroke-width="1" opacity="0.4"/>
+          <!-- Tank bands -->
+          <rect x="70" y="220" width="260" height="8" fill="#7090a8" opacity="0.5"/>
+          <rect x="70" y="270" width="260" height="8" fill="#7090a8" opacity="0.5"/>
+          <!-- Small cylindrical tank right -->
+          <ellipse cx="440" cy="300" rx="80" ry="24" fill="#aac0d0"/>
+          <rect x="360" y="210" width="160" height="90" fill="#b8ccdc"/>
+          <ellipse cx="440" cy="210" rx="80" ry="24" fill="#cce0ee"/>
+          <ellipse cx="440" cy="214" rx="68" ry="18" fill="url(#water3)" opacity="0.6"/>
+          <!-- Pipes -->
+          <rect x="310" y="265" width="60" height="14" fill="#888" rx="7"/>
+          <rect x="340" y="240" width="14" height="40" fill="#888" rx="7"/>
+          <!-- Pipe to ground -->
+          <rect x="118" y="310" width="14" height="55" fill="#888"/>
+          <rect x="460" y="298" width="14" height="65" fill="#888"/>
+          <!-- Control building -->
+          <rect x="30" y="290" width="60" height="75" fill="#d0c8b0"/>
+          <rect x="35" y="270" width="50" height="25" fill="#b8b0a0"/>
+          <polygon points="25,270 90,270 57,248" fill="#8B4513"/>
+          <rect x="48" y="310" width="20" height="30" fill="#8B4513"/>
+          <rect x="38" y="298" width="15" height="15" fill="#aadeff" stroke="#888" stroke-width="1.5"/>
+          <!-- Measurement gauges -->
+          <circle cx="190" cy="155" r="14" fill="#eee" stroke="#888" stroke-width="2"/>
+          <circle cx="190" cy="155" r="10" fill="#fff"/>
+          <line x1="190" y1="155" x2="196" y2="148" stroke="#e33" stroke-width="2"/>
+          <circle cx="230" cy="152" r="14" fill="#eee" stroke="#888" stroke-width="2"/>
+          <circle cx="230" cy="152" r="10" fill="#fff"/>
+          <line x1="230" y1="152" x2="226" y2="145" stroke="#3a3" stroke-width="2"/>
+          <!-- Label -->
+          <rect x="120" y="138" width="80" height="22" fill="#1c2b4a" rx="3"/>
+          <text x="160" y="153" text-anchor="middle" fill="white" font-size="9" font-family="Arial" font-weight="bold">STP PLANT</text>
+        </svg>
         <div class="port-overlay">
           <div class="port-tag">Environmental</div>
-          <h4>STP Plant</h4>
+          <h4>STP Plant Installation</h4>
           <p>Sewage treatment for industrial complex</p>
         </div>
       </div>
+
+      <!-- Project 4 — Industrial / Epoxy Flooring -->
       <div class="port-item fade-up">
-        <div class="port-ph">🏭</div>
-        <div class="port-label"><span>Epoxy Flooring — Warehouse</span></div>
+        <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="floor4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a8ac0"/><stop offset="100%" stop-color="#1a5a90"/></linearGradient>
+            <linearGradient id="wall4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d0c8b8"/><stop offset="100%" stop-color="#b8b0a0"/></linearGradient>
+            <linearGradient id="ceil4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8e0d0"/><stop offset="100%" stop-color="#d0c8b8"/></linearGradient>
+          </defs>
+          <!-- Ceiling -->
+          <rect width="600" height="180" fill="url(#ceil4)"/>
+          <!-- Back wall -->
+          <rect x="0" y="180" width="600" height="180" fill="url(#wall4)"/>
+          <!-- Epoxy floor (perspective) -->
+          <polygon points="0,360 600,360 600,480 0,480" fill="url(#floor4)"/>
+          <!-- Floor shine/reflection -->
+          <polygon points="50,360 550,360 600,480 0,480" fill="none"/>
+          <ellipse cx="300" cy="430" rx="250" ry="30" fill="white" opacity="0.08"/>
+          <ellipse cx="200" cy="410" rx="100" ry="15" fill="white" opacity="0.06"/>
+          <!-- Floor grid lines (epoxy) -->
+          <line x1="0" y1="360" x2="600" y2="360" stroke="white" stroke-width="1" opacity="0.3"/>
+          <line x1="100" y1="360" x2="50" y2="480" stroke="white" stroke-width="0.8" opacity="0.2"/>
+          <line x1="200" y1="360" x2="133" y2="480" stroke="white" stroke-width="0.8" opacity="0.2"/>
+          <line x1="300" y1="360" x2="300" y2="480" stroke="white" stroke-width="0.8" opacity="0.2"/>
+          <line x1="400" y1="360" x2="467" y2="480" stroke="white" stroke-width="0.8" opacity="0.2"/>
+          <line x1="500" y1="360" x2="550" y2="480" stroke="white" stroke-width="0.8" opacity="0.2"/>
+          <!-- Steel columns -->
+          <rect x="40" y="100" width="20" height="260" fill="#7a7a8a"/>
+          <rect x="37" y="97" width="26" height="10" fill="#5a5a6a"/>
+          <rect x="40" y="355" width="20" height="10" fill="#5a5a6a"/>
+          <rect x="180" y="100" width="20" height="260" fill="#7a7a8a"/>
+          <rect x="177" y="97" width="26" height="10" fill="#5a5a6a"/>
+          <rect x="400" y="100" width="20" height="260" fill="#7a7a8a"/>
+          <rect x="397" y="97" width="26" height="10" fill="#5a5a6a"/>
+          <rect x="540" y="100" width="20" height="260" fill="#7a7a8a"/>
+          <rect x="537" y="97" width="26" height="10" fill="#5a5a6a"/>
+          <!-- Roof trusses -->
+          <line x1="0" y1="105" x2="600" y2="105" stroke="#5a5a6a" stroke-width="8"/>
+          <line x1="40" y1="105" x2="200" y2="50" stroke="#6a6a7a" stroke-width="5"/>
+          <line x1="200" y1="50" x2="400" y2="50" stroke="#6a6a7a" stroke-width="5"/>
+          <line x1="400" y1="50" x2="560" y2="105" stroke="#6a6a7a" stroke-width="5"/>
+          <line x1="120" y1="105" x2="200" y2="50" stroke="#6a6a7a" stroke-width="3"/>
+          <line x1="300" y1="105" x2="300" y2="50" stroke="#6a6a7a" stroke-width="3"/>
+          <line x1="480" y1="105" x2="400" y2="50" stroke="#6a6a7a" stroke-width="3"/>
+          <!-- Skylights -->
+          <rect x="210" y="48" width="80" height="30" fill="#aadeff" opacity="0.7"/>
+          <rect x="310" y="48" width="80" height="30" fill="#aadeff" opacity="0.7"/>
+          <!-- Light beams from skylights -->
+          <polygon points="210,78 290,78 320,200 180,200" fill="#ffffaa" opacity="0.06"/>
+          <polygon points="310,78 390,78 420,200 280,200" fill="#ffffaa" opacity="0.06"/>
+          <!-- Roller machine applying epoxy -->
+          <rect x="280" y="330" width="80" height="35" fill="#f5a623" rx="4"/>
+          <rect x="275" y="355" width="90" height="10" fill="#e09010" rx="2"/>
+          <rect x="316" y="290" width="8" height="45" fill="#ccc"/>
+          <circle cx="285" cy="362" r="8" fill="#555"/>
+          <circle cx="355" cy="362" r="8" fill="#555"/>
+          <!-- Worker -->
+          <circle cx="320" cy="278" r="14" fill="#f5c6a0"/>
+          <rect x="310" y="292" width="20" height="35" fill="#1c2b4a"/>
+          <!-- Yellow safety line on floor -->
+          <line x1="0" y1="375" x2="600" y2="375" stroke="#FFD700" stroke-width="4" stroke-dasharray="20,15" opacity="0.8"/>
+          <!-- Label plate -->
+          <rect x="430" y="200" width="130" height="55" fill="#1c2b4a" rx="4"/>
+          <text x="495" y="220" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">EPOXY FLOOR</text>
+          <text x="495" y="234" text-anchor="middle" fill="#b5722a" font-size="9" font-family="Arial">Industrial Grade</text>
+          <text x="495" y="248" text-anchor="middle" fill="#aaa" font-size="8" font-family="Arial">12,000 sq.ft</text>
+        </svg>
         <div class="port-overlay">
           <div class="port-tag">Industrial</div>
-          <h4>Epoxy Flooring</h4>
+          <h4>Epoxy Flooring — Warehouse</h4>
           <p>PU & epoxy flooring, 12,000 sq ft</p>
         </div>
       </div>
+
+      <!-- Project 5 — Solar Panels -->
       <div class="port-item fade-up">
-        <div class="port-ph">🌞</div>
-        <div class="port-label"><span>Solar Panel Installation</span></div>
+        <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87CEEB"/><stop offset="60%" stop-color="#c8e8f8"/><stop offset="100%" stop-color="#ddeef8"/></linearGradient>
+            <linearGradient id="panel5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a3a6a"/><stop offset="50%" stop-color="#1e4880"/><stop offset="100%" stop-color="#0a2850"/></linearGradient>
+            <linearGradient id="roof5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#aaa"/>  <stop offset="100%" stop-color="#888"/></linearGradient>
+          </defs>
+          <rect width="600" height="480" fill="url(#sky5)"/>
+          <!-- Sun with rays -->
+          <circle cx="80" cy="80" r="50" fill="#FFD700" opacity="0.9"/>
+          <line x1="80" y1="15" x2="80" y2="5" stroke="#FFD700" stroke-width="4" opacity="0.7"/>
+          <line x1="120" y1="30" x2="128" y2="22" stroke="#FFD700" stroke-width="4" opacity="0.7"/>
+          <line x1="140" y1="70" x2="150" y2="70" stroke="#FFD700" stroke-width="4" opacity="0.7"/>
+          <line x1="128" y1="115" x2="136" y2="122" stroke="#FFD700" stroke-width="4" opacity="0.7"/>
+          <line x1="35" y1="30" x2="27" y2="22" stroke="#FFD700" stroke-width="4" opacity="0.7"/>
+          <!-- Sun glow -->
+          <circle cx="80" cy="80" r="70" fill="#FFD700" opacity="0.12"/>
+          <!-- Light beam to panels -->
+          <polygon points="130,80 300,220 260,220" fill="#FFD700" opacity="0.08"/>
+          <!-- Ground / Rooftop -->
+          <rect x="0" y="310" width="600" height="170" fill="url(#roof5)"/>
+          <rect x="0" y="305" width="600" height="12" fill="#999"/>
+          <!-- Solar panel array — row 1 (back) -->
+          <g transform="skewY(-8) translate(0,30)">
+            <rect x="50" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="50" y1="190" x2="145" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="50" y1="210" x2="145" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="97" y1="170" x2="97" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <!-- shine -->
+            <rect x="55" y="173" width="35" height="20" fill="white" opacity="0.06" rx="1"/>
+            <rect x="160" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="160" y1="190" x2="255" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="160" y1="210" x2="255" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="207" y1="170" x2="207" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="165" y="173" width="35" height="20" fill="white" opacity="0.06" rx="1"/>
+            <rect x="270" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="270" y1="190" x2="365" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="270" y1="210" x2="365" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="317" y1="170" x2="317" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="275" y="173" width="35" height="20" fill="white" opacity="0.06" rx="1"/>
+            <rect x="380" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="380" y1="190" x2="475" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="380" y1="210" x2="475" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="427" y1="170" x2="427" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="385" y="173" width="35" height="20" fill="white" opacity="0.06" rx="1"/>
+          </g>
+          <!-- Solar panel array — row 2 (front) -->
+          <g transform="skewY(-8) translate(0,95)">
+            <rect x="50" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="50" y1="190" x2="145" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="50" y1="210" x2="145" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="97" y1="170" x2="97" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="55" y="173" width="35" height="20" fill="white" opacity="0.08" rx="1"/>
+            <rect x="160" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="160" y1="190" x2="255" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="160" y1="210" x2="255" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="207" y1="170" x2="207" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="165" y="173" width="35" height="20" fill="white" opacity="0.08" rx="1"/>
+            <rect x="270" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="270" y1="190" x2="365" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="270" y1="210" x2="365" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="317" y1="170" x2="317" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="275" y="173" width="35" height="20" fill="white" opacity="0.08" rx="1"/>
+            <rect x="380" y="170" width="95" height="60" fill="url(#panel5)" stroke="#4a7aaa" stroke-width="1.5"/>
+            <line x1="380" y1="190" x2="475" y2="190" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="380" y1="210" x2="475" y2="210" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <line x1="427" y1="170" x2="427" y2="230" stroke="#4a7aaa" stroke-width="0.8" opacity="0.6"/>
+            <rect x="385" y="173" width="35" height="20" fill="white" opacity="0.08" rx="1"/>
+          </g>
+          <!-- Panel mounts / frames -->
+          <rect x="90" y="295" width="6" height="20" fill="#888"/>
+          <rect x="200" y="295" width="6" height="20" fill="#888"/>
+          <rect x="310" y="295" width="6" height="20" fill="#888"/>
+          <rect x="420" y="295" width="6" height="20" fill="#888"/>
+          <!-- Inverter box -->
+          <rect x="490" y="310" width="80" height="55" fill="#444" rx="4"/>
+          <rect x="495" y="315" width="70" height="45" fill="#333" rx="3"/>
+          <circle cx="520" cy="340" r="8" fill="#0f0" opacity="0.8"/>
+          <rect x="535" y="330" width="20" height="5" fill="#555" rx="2"/>
+          <rect x="535" y="340" width="20" height="5" fill="#555" rx="2"/>
+          <rect x="535" y="350" width="20" height="5" fill="#555" rx="2"/>
+          <text x="530" y="370" text-anchor="middle" fill="#aaa" font-size="8" font-family="Arial">INVERTER</text>
+          <!-- Wiring -->
+          <path d="M90,310 Q90,340 490,340" stroke="#ff0" stroke-width="2" fill="none" opacity="0.4"/>
+        </svg>
         <div class="port-overlay">
           <div class="port-tag">Energy</div>
-          <h4>Solar Installation</h4>
+          <h4>Solar Panel Installation</h4>
           <p>Rooftop solar for commercial building</p>
         </div>
       </div>
+
     </div>
-    <p style="margin-top:28px; font-size:12px; color:var(--light);">* Actual project photos will be uploaded here. Contact us to view our full portfolio.</p>
+
+    <!-- ════ PHOTO PLACEMENT GUIDE ════ -->
+    <div class="photo-guide">
+      <h4>📸 How to Replace These with Your Own Project Photos</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Project Slot</th>
+            <th>What to Do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 — Road & Drainage<br><small style="color:var(--muted)">(Large left card)</small></td>
+            <td>Save your photo as <code>project1.jpg</code>. In the HTML, find the first <code>&lt;img src="https://images.unsplash...&gt;</code> and replace the <code>src</code> with <code>project1.jpg</code></td>
+          </tr>
+          <tr>
+            <td>2 — Residential Villa</td>
+            <td>Save as <code>project2.jpg</code> → change second image's <code>src</code> to <code>project2.jpg</code></td>
+          </tr>
+          <tr>
+            <td>3 — STP Plant</td>
+            <td>Save as <code>project3.jpg</code> → change third image's <code>src</code> to <code>project3.jpg</code></td>
+          </tr>
+          <tr>
+            <td>4 — Epoxy Flooring</td>
+            <td>Save as <code>project4.jpg</code> → change fourth image's <code>src</code> to <code>project4.jpg</code></td>
+          </tr>
+          <tr>
+            <td>5 — Solar Panels</td>
+            <td>Save as <code>project5.jpg</code> → change fifth image's <code>src</code> to <code>project5.jpg</code></td>
+          </tr>
+          <tr>
+            <td>Durgesh's Photo</td>
+            <td>Save as <code>durgesh.jpg</code> → in the About section, replace the <code>&lt;div class="ph-inner"&gt;...&lt;/div&gt;</code> block with <code>&lt;img src="durgesh.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;"&gt;</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:14px; font-size:12px; color:var(--muted);">💡 Tip: Place all image files in the <strong>same folder</strong> as this <code>index.html</code> file. Use JPG or WebP format for best performance. Recommended size: 1200×800px minimum.</p>
+    </div>
+
   </div>
 </section>
 
@@ -530,49 +903,50 @@
 <section id="approvals" class="section">
   <div class="container">
     <div class="flex-hdr">
-      <div>
-        <div class="eyebrow">Licensing & Compliance</div>
-        <h2 class="sh">Approvals &<br><em>Liasoning</em></h2>
-      </div>
-      <p class="sub">We manage end-to-end approvals and government liaison so your project moves forward without delays or compliance surprises.</p>
+      <div><div class="eyebrow">Licensing & Compliance</div><h2 class="sh">Approvals &<br><em>Liasoning</em></h2></div>
+      <p class="sub">We manage end-to-end approvals and government liaison so your project moves forward without delays.</p>
     </div>
     <div class="appr-grid">
-      <div class="appr-item">
-        <div class="appr-icon">🏢</div>
-        <h4>Commercial Approvals</h4>
-        <p>Building plan sanctions, occupancy certificates and commercial use permissions</p>
-      </div>
-      <div class="appr-item">
-        <div class="appr-icon">🏭</div>
-        <h4>Industrial Approvals</h4>
-        <p>Factory licenses, fire NOC, pollution control clearances and KSPCB compliance</p>
-      </div>
-      <div class="appr-item">
-        <div class="appr-icon">🌿</div>
-        <h4>Environmental Clearances</h4>
-        <p>EIA reports, consent to establish/operate, environmental and forest clearances</p>
-      </div>
-      <div class="appr-item">
-        <div class="appr-icon">📋</div>
-        <h4>Government Liasoning</h4>
-        <p>Coordination with BBMP, BMRDA, BDA, Gram Panchayats and local authorities</p>
-      </div>
+      <div class="appr-item"><div class="appr-icon">🏢</div><h4>Commercial Approvals</h4><p>Building plan sanctions, occupancy certificates and commercial use permissions</p></div>
+      <div class="appr-item"><div class="appr-icon">🏭</div><h4>Industrial Approvals</h4><p>Factory licenses, fire NOC, pollution control clearances and KSPCB compliance</p></div>
+      <div class="appr-item"><div class="appr-icon">🌿</div><h4>Environmental Clearances</h4><p>EIA reports, consent to establish/operate, environmental and forest clearances</p></div>
+      <div class="appr-item"><div class="appr-icon">📋</div><h4>Government Liasoning</h4><p>Coordination with BBMP, BMRDA, BDA, Gram Panchayats and local authorities</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT — Working form using Formspree -->
 <section id="contact" class="section">
   <div class="container">
     <div class="eyebrow">Let's Build Together</div>
     <h2 class="sh" style="margin-bottom:52px;">Get in <em>Touch</em></h2>
     <div class="contact-wrap">
-      <form id="contact-form" action="https://formspree.io/f/xwprnenr" method="POST" class="cform">
+
+      <!--
+        ════ CONTACT FORM SETUP ════
+        This form uses Formspree (free). To activate:
+        1. Go to https://formspree.io and sign up (free)
+        2. Create a new form — you'll get a URL like https://formspree.io/f/xxxxxxxx
+        3. Replace the action URL below with your form URL
+        4. Done! Submissions will be emailed to you.
+        Your current Formspree ID is already set: xwprnenr
+      -->
+      <form id="contact-form" class="cform" novalidate>
+        <div id="form-status" class="form-status"></div>
         <div class="frow">
-          <div class="fgroup"><label for="name">Full Name</label><input id="name" name="name" placeholder="Your name" required></div>
-          <div class="fgroup"><label for="phone">Phone</label><input id="phone" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="fgroup">
+            <label for="name">Full Name *</label>
+            <input id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="fgroup">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+          </div>
         </div>
-        <div class="fgroup"><label for="email">Email Address</label><input id="email" type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="fgroup">
+          <label for="email">Email Address *</label>
+          <input id="email" type="email" name="email" placeholder="your@email.com" required>
+        </div>
         <div class="fgroup">
           <label for="service">Service Required</label>
           <select id="service" name="service">
@@ -588,14 +962,18 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="fgroup"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Describe your project, location, timeline…" required></textarea></div>
-        <button type="submit" class="btn btn-dark" style="align-self:flex-start;">Send Message →</button>
+        <div class="fgroup">
+          <label for="message">Project Details *</label>
+          <textarea id="message" name="message" placeholder="Describe your project, location, timeline…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark submit-btn" id="submit-btn">Send Message →</button>
       </form>
+
       <aside class="cinfo">
         <h3>Office Info</h3>
         <div class="ci-block"><div class="ci-icon">📍</div><div><div class="ci-label">Address</div><div class="ci-val">#36 Gangambika Nilaya<br>Kumbeshwara Temple Road<br>Kumbeshwara Layout, Malur Town</div></div></div>
         <div class="ci-block"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+918660865521">+91 86608 65521</a></div></div></div>
-        <div class="ci-block"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:info@harekrishnaconstructions.in">info@harekrishnaconstructions.in</a></div></div></div>
+        <div class="ci-block"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#afc6c1c9c0efc7ceddcac4ddc6dcc7c1ceccc0c1dcdbdddaccdbc6c0c1dc81c6c1"><span class="__cf_email__" data-cfemail="274e494148674f4655424c554e544f49464448495453555244534e484954094e49">[email&#160;protected]</span></a></div></div></div>
         <div class="ci-block"><div class="ci-icon">🗺️</div><div><div class="ci-label">Service Area</div><div class="ci-val">Malur, Kolar, Chikkaballapur,<br>Bengaluru Rural & Surrounding Districts</div></div></div>
         <div class="ci-block"><div class="ci-icon">🕐</div><div><div class="ci-label">Working Hours</div><div class="ci-val">Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: By Appointment</div></div></div>
       </aside>
@@ -608,8 +986,8 @@
 <div id="popup-overlay" class="popup-overlay"></div>
 <div id="thank-you-popup" class="ty-popup" role="dialog">
   <div class="ty-icon">✅</div>
-  <h3>Thank You!</h3>
-  <p>Your message has been received. Durgesh and the team will respond within 24 hours.</p>
+  <h3>Message Sent!</h3>
+  <p>Thank you for reaching out. Durgesh and the team will get back to you within 24 hours.</p>
   <button id="close-popup">Close</button>
 </div>
 
@@ -619,10 +997,7 @@
       <div>
         <div class="footer-logo">
           <div class="footer-badge">HKC</div>
-          <div>
-            <div class="footer-brand-name">HAREKRISHNA</div>
-            <div class="footer-brand-sub">Constructions · Malur</div>
-          </div>
+          <div><div class="footer-brand-name">HAREKRISHNA</div><div class="footer-brand-sub">Constructions · Malur</div></div>
         </div>
         <p class="footer-desc">Building stronger communities through quality infrastructure, commercial and residential construction. Malur's trusted civil engineering partner.</p>
         <p class="footer-credit">Led by <strong>Durgesh MK</strong>, Civil Engineer · 8+ Years Experience</p>
@@ -630,23 +1005,17 @@
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li>Infrastructure Works</li>
-          <li>Roads & Drainage</li>
-          <li>Water Supply / STP / ETP</li>
-          <li>Residential Construction</li>
-          <li>Industrial & Commercial</li>
-          <li>Solar Panels</li>
-          <li>Electrical Services</li>
-          <li>Approvals & Liasoning</li>
+          <li>Infrastructure Works</li><li>Roads & Drainage</li><li>Water Supply / STP / ETP</li>
+          <li>Residential Construction</li><li>Industrial & Commercial</li>
+          <li>Solar Panels</li><li>Electrical Services</li><li>Approvals & Liasoning</li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
         <ul>
-          <li>#36 Gangambika Nilaya</li>
-          <li>Kumbeshwara Layout, Malur</li>
+          <li>#36 Gangambika Nilaya</li><li>Kumbeshwara Layout, Malur</li>
           <li><a href="tel:+918660865521">+91 86608 65521</a></li>
-          <li><a href="mailto:info@harekrishnaconstructions.in" style="font-size:11.5px;">info@harekrishnaconstructions.in</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#6d04030b022d050c1f08061f041e05030c0e02031e191f180e190402031e430403" style="font-size:11.5px;"><span class="__cf_email__" data-cfemail="0861666e674860697a6d637a617b6066696b67667b7c7a7d6b7c6167667b266166">[email&#160;protected]</span></a></li>
           <li>Mon–Sat · 9 AM – 7 PM</li>
         </ul>
       </div>
@@ -658,25 +1027,74 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Year ── */
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Header scroll ── */
   const hdr = document.getElementById('site-header');
   window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40));
-  document.getElementById('nav-toggle').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
-  document.querySelectorAll('#main-nav a').forEach(a => a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('open')));
-  const obs = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.08 });
+
+  /* ── Mobile nav ── */
+  document.getElementById('nav-toggle').addEventListener('click', () =>
+    document.getElementById('main-nav').classList.toggle('open')
+  );
+  document.querySelectorAll('#main-nav a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('main-nav').classList.remove('open'))
+  );
+
+  /* ── Fade-up observer ── */
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+    { threshold: 0.08 }
+  );
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-  const form = document.getElementById('contact-form');
+
+  /* ── Popup helpers ── */
   const overlay = document.getElementById('popup-overlay');
-  const popup = document.getElementById('thank-you-popup');
-  form.addEventListener('submit', async e => {
+  const popup   = document.getElementById('thank-you-popup');
+  const openPopup  = () => { overlay.classList.add('active'); popup.classList.add('active'); };
+  const closePopup = () => { overlay.classList.remove('active'); popup.classList.remove('active'); };
+  document.getElementById('close-popup').addEventListener('click', closePopup);
+  overlay.addEventListener('click', closePopup);
+
+  /* ── Contact form → Formspree ── */
+  const form      = document.getElementById('contact-form');
+  const statusBox = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    try { const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } }); if (r.ok) form.reset(); } catch {}
-    overlay.classList.add('active'); popup.classList.add('active');
-  });
-  const close = () => { overlay.classList.remove('active'); popup.classList.remove('active'); };
-  document.getElementById('close-popup').addEventListener('click', close);
-  overlay.addEventListener('click', close);
-</script>
-</body>
-</html>
+
+    /* Basic client-side validation */
+    const name    = form.name.value.trim();
+    const email   = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      statusBox.className = 'form-status error';
+      statusBox.textContent = '⚠️ Please fill in Name, Email and Project Details.';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      statusBox.className = 'form-status error';
+      statusBox.textContent = '⚠️ Please enter a valid email address.';
+      return;
+    }
+
+    /* Show loading state */
+    submitBtn.classList.add('loading');
+    submitBtn.textContent = 'Sending…';
+    statusBox.className = 'form-status';
+    statusBox.textContent = '';
+
+    try {
+      const res = await fetch('https://formspree.io/f/xwprnenr', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    form.name.value,
+          phone:   form.phone.value,
+          email:   form.email.value,
+          service: form.service.value,
+  
